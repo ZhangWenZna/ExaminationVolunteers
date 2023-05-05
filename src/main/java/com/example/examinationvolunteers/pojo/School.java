@@ -31,4 +31,6 @@ public class School {
      学校层次（专科，本科）
      */
     private String schoolLevel;
+
+    public School(){}
 }

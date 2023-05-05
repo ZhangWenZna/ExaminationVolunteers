@@ -7,7 +7,23 @@
         <result column="user_type" jdbcType="VARCHAR" property="userType" />
         <result column="password" jdbcType="VARCHAR" property="password" />
     </resultMap>
-    <select id="selectUser" parameterType="com.example.examinationvolunteers.pojo.User" resultMap="BaseResultMap">
+    <select id="selectUser"  resultType="com.example.examinationvolunteers.pojo.User" resultMap="BaseResultMap">
         select * from user where user_id = #{id}
     </select>
+    <select id="selectAll" resultType="com.example.examinationvolunteers.pojo.User" resultMap="BaseResultMap">
+        select * from user
+    </select>
+    <insert id="insertUser" parameterType="com.example.examinationvolunteers.pojo.User" >
+        insert into user (user_id,username, user_type, `password`
+        )
+        values (#{userId},#{userName}, #{userType}, #{password}
+               )
+    </insert>
+    <update id="updataUser" parameterType="com.example.examinationvolunteers.pojo.User" >
+        update user set user_id=#{userId} user_type=#{userType},username=#{userName}, password=#{password};
+    </update>
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user
+        where user_id = #{UserId}
+    </delete>
 </mapper>

@@ -7,8 +7,8 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     User selectUser(Integer id);
-//    int insertUser(User user);
-//    int deleteUser(Integer id);
-//    List<User> selectAll();
-//    int updataUser(User user);
+    int insertUser(User user);
+    int deleteUser(Integer UserId);
+    List<User> selectAll();
+    int updataUser(User user);
 }

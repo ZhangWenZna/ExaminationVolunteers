@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.examinationvolunteers.mapper.SchoolMapper">
+    <resultMap id="BaseResultMap" type="com.example.examinationvolunteers.pojo.School">
+        <id column="school_id" jdbcType="INTEGER" property="schoolId" />
+        <result column="province" jdbcType="VARCHAR" property="province" />
+        <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
+        <result column="school_type" jdbcType="VARCHAR" property="schoolType" />
+        <result column="school_level" jdbcType="VARCHAR" property="schoolLevel" />
+    </resultMap>
+    <select id="selectSchool"  resultType="com.example.examinationvolunteers.pojo.School" resultMap="BaseResultMap">
+        select * from school where school_id = #{schoolId}
+    </select>
+    <select id="selectAll" resultType="com.example.examinationvolunteers.pojo.School" resultMap="BaseResultMap">
+        select * from school
+    </select>
+    <insert id="insertSchool" parameterType="com.example.examinationvolunteers.pojo.School" >
+        insert into school (school_id,province,school_name, school_type, `school_level`
+        )
+        values (#{schoolId},#{province}, #{schoolName}, #{schoolType},#{schoolLevel}
+               )
+    </insert>
+    <update id="updataSchool" parameterType="com.example.examinationvolunteers.pojo.School" >
+        update school set school_id=#{schoolId} province=#{province},school_name=#{schoolName}, school_type=#{schoolType},school_level=#{schoolLevel};
+    </update>
+    <delete id="deleteSchool" parameterType="java.lang.Integer">
+        delete from school
+        where school_id = #{schoolId}
+    </delete>
+</mapper>

@@ -20,7 +20,7 @@
                )
     </insert>
     <update id="updataUser" parameterType="com.example.examinationvolunteers.pojo.User" >
-        update user set user_id=#{userId} user_type=#{userType},username=#{userName}, password=#{password};
+        update user set user_id=#{userId}, user_type=#{userType},username=#{userName}, password=#{password};
     </update>
     <delete id="deleteUser" parameterType="java.lang.Integer">
         delete from user

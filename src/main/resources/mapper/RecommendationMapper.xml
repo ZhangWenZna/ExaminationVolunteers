@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.examinationvolunteers.mapper.RecommendationMapper">
+    <resultMap id="BaseResultMap" type="com.example.examinationvolunteers.pojo.Recommendation">
+        <id column="recommendation_id" jdbcType="INTEGER" property="recommendationId" />
+        <result column="examinee_id" jdbcType="INTEGER" property="examineeId" />
+        <result column="school_id" jdbcType="INTEGER" property="schoolId" />
+        <result column="major_id" jdbcType="INTEGER" property="majorId" />
+    </resultMap>
+    <select id="selectRecommendation"  resultType="com.example.examinationvolunteers.pojo.Recommendation" resultMap="BaseResultMap">
+        select * from recommendation where recommendation_id = #{recommendationId}
+    </select>
+    <select id="selectAll" resultType="com.example.examinationvolunteers.pojo.Recommendation" resultMap="BaseResultMap">
+        select * from recommendation
+    </select>
+    <insert id="insertRecommendation" parameterType="com.example.examinationvolunteers.pojo.Recommendation" >
+        insert into recommendation (recommendation_id,examinee_id,school_id, major_id
+        )
+        values (#{recommendationId},#{examineeId}, #{schoolId}, #{majorId}
+               )
+    </insert>
+    <update id="updataRecommendation" parameterType="com.example.examinationvolunteers.pojo.Recommendation" >
+        update recommendation set recommendation_id=#{recommendationId}, examinee_id=#{examineeId},school_id=#{schoolId}, major_id=#{majorId};
+    </update>
+    <delete id="deleteRecommendation" parameterType="java.lang.Integer">
+        delete from recommendation
+        where recommendation_id = #{recommendationId}
+    </delete>
+</mapper>

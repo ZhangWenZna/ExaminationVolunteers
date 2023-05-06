@@ -22,7 +22,7 @@ public class Major {
     /**
      *该专业所属学校ID
      */
-    private Integer SchoolId;
+    private Integer schoolId;
     /**
      *专业类型
      */

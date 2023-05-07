@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.examinationvolunteers.mapper.ExamineeMapper">
+    <resultMap id="BaseResultMap" type="com.example.examinationvolunteers.pojo.Examinee">
+        <id column="examinee_id" jdbcType="INTEGER" property="examineeId" />
+        <result column="examinee_name" jdbcType="VARCHAR" property="examineeName" />
+        <result column="examinee_province" jdbcType="VARCHAR" property="examineeProvince" />
+        <result column="examinee_score" jdbcType="FLOAT" property="examineeScore" />
+        <result column="examinee_subject" jdbcType="VARCHAR" property="examineeSubject" />
+    </resultMap>
+    <select id="selectExaminee"  resultType="com.example.examinationvolunteers.pojo.Examinee" resultMap="BaseResultMap">
+        select * from school where examinee_id = #{examineeId}
+    </select>
+    <select id="selectAll" resultType="com.example.examinationvolunteers.pojo.Examinee" resultMap="BaseResultMap">
+        select * from examinee
+    </select>
+    <insert id="insertExaminee" parameterType="com.example.examinationvolunteers.pojo.Examinee" >
+        insert into examinee (examinee_id,examinee_name,examinee_province, examinee_score, examinee_subject
+        )
+        values (#{examineeId},#{examineeName}, #{examineeProvince}, #{examineeScore},#{examineeSubject}
+               )
+    </insert>
+    <update id="updataExaminee" parameterType="com.example.examinationvolunteers.pojo.Examinee" >
+        update examinee set examinee_id=#{examineeId} examinee_name=#{examineeName},examinee_province=#{examineeProvince}, examinee_score=#{examineeScore},examinee_subject=#{examineeSubject};
+    </update>
+    <delete id="deleteExaminee" parameterType="java.lang.Integer">
+        delete from examinee
+        where examinee_id = #{examineeId}
+    </delete>
+</mapper>

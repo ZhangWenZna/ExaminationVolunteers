@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.examinationvolunteers.mapper.EvamDataMapper">
+    <resultMap id="BaseResultMap" type="com.example.examinationvolunteers.pojo.EvamData">
+        <id column="data_id" jdbcType="INTEGER" property="dataId" />
+        <result column="school_id" jdbcType="INTEGER" property="schoolId" />
+        <result column="year" jdbcType="INTEGER" property="year" />
+        <result column="science" jdbcType="FLOAT" property="science" />
+        <result column="liberal_arts" jdbcType="FLOAT" property="liberalArts" />
+    </resultMap>
+    <select id="selectEvamData"  resultType="com.example.examinationvolunteers.pojo.EvamData" resultMap="BaseResultMap">
+        select * from evamd_ata where data_id = #{dataId}
+    </select>
+    <select id="selectAll" resultType="com.example.examinationvolunteers.pojo.EvamData" resultMap="BaseResultMap">
+        select * from evamd_ata
+    </select>
+    <insert id="insertEvamData" parameterType="com.example.examinationvolunteers.pojo.EvamData" >
+        insert into evamd_ata (data_id,school_id,`year`, science, `liberal_arts`
+        )
+        values (#{dataId},#{schoolId}, #{year}, #{science},#{liberalArts}
+               )
+    </insert>
+    <update id="updataEvamData" parameterType="com.example.examinationvolunteers.pojo.EvamData" >
+        update evamd_ata set data_id=#{dataId} school_id=#{schoolId}, year=#{year}, science=#{science},liberal_arts=#{liberalArts};
+    </update>
+    <delete id="deleteEvamData" parameterType="java.lang.Integer">
+        delete from evamd_ata
+        where data_id = #{dataId}
+    </delete>
+</mapper>

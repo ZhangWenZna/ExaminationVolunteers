@@ -4,6 +4,8 @@ import com.example.examinationvolunteers.mapper.SchoolMapper;
 import com.example.examinationvolunteers.mapper.UserMapper;
 import com.example.examinationvolunteers.pojo.School;
 import com.example.examinationvolunteers.pojo.User;
+import com.example.examinationvolunteers.service.SchoolService;
+import com.example.examinationvolunteers.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,9 +13,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ExaminationVolunteersApplicationTests {
     @Autowired
-    UserMapper userMapper;
+    UserService userService;
     @Autowired
-    SchoolMapper schoolMapper;
+    SchoolService schoolService;
     @Test
     void contextLoads() {
         //School school =new School();
@@ -22,7 +24,8 @@ class ExaminationVolunteersApplicationTests {
         //userMapper.insertUser();
         //userMapper.deleteUser(2);
         //userMapper.updataUser(user);
-        System.out.println(schoolMapper.selectAll());
+        System.out.println(userService.selectAll());
+        System.out.println(schoolService.selectAll());
     }
 
 }

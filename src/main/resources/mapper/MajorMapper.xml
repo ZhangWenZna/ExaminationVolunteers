@@ -7,7 +7,7 @@
         <result column="School_id" jdbcType="INTEGER" property="schoolId" />
         <result column="major_type" jdbcType="VARCHAR" property="majorType" />
         <result column="major_lerel" jdbcType="VARCHAR" property="majorLerel" />
-        <result column="major_score" jdbcType="VARCHAR" property="majorScore" />
+        <result column="major_score" jdbcType="FLOAT" property="majorScore" />
     </resultMap>
     <select id="selectMajor"  resultType="com.example.examinationvolunteers.pojo.Major" resultMap="BaseResultMap">
         select * from major where major_id = #{majorId}

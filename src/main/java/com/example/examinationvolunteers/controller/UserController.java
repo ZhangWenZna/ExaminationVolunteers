@@ -1,2 +1,9 @@
-package com.example.examinationvolunteers.controller;public class UserController {
+package com.example.examinationvolunteers.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/user")
+public class UserController {
 }

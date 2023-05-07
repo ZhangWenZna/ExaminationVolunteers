@@ -1,2 +1,4 @@
-package com.example.examinationvolunteers.controller;public class MajorController {
+package com.example.examinationvolunteers.controller;
+
+public class MajorController {
 }

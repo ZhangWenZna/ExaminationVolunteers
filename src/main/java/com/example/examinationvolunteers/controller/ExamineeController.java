@@ -1,2 +1,4 @@
-package com.example.examinationvolunteers.controller;public class ExamineeController {
+package com.example.examinationvolunteers.controller;
+
+public class ExamineeController {
 }
